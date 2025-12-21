@@ -1,15 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GraMaui.MainPage">
+             x:Class="GraMaui.MainPage"
+             BackgroundColor="#F5F5F7">
     <Grid RowDefinitions="Auto, *" Padding="20">
         <VerticalStackLayout>
             <Label Text="BIBLIOTEKA GIER" 
-                   HorizontalOptions="Center" 
-                   FontSize="24"/>
-            <Label Text="Wybierz typ Gry:"/>
-            <Picker x:Name="PickerTagow" 
-                    SelectedIndexChanged="ZmianaTag"/>
+                   FontSize="24" 
+                   TextColor="#2C3E50"
+                   HorizontalOptions="Center"/>
+            <Label Text="Wybierz typ Gry:"
+                   TextColor="Black"/>
+            <Border StrokeThickness="0" BackgroundColor="Black">
+                <Picker x:Name="PickerTagow"
+                        HorizontalOptions="Fill"
+                        TextColor="White"
+                        SelectedIndexChanged="ZmianaTag"/>
+            </Border>
         </VerticalStackLayout>
         <CollectionView x:Name="ListaGier" Grid.Row="1">
             <CollectionView.ItemsLayout>
@@ -17,18 +24,26 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid ColumnDefinitions="*, Auto">
-                        <VerticalStackLayout Grid.Column="0">
-                            <Label Text="{Binding Tytul}" 
-                                   FontSize="18"/>
+                    <Border BackgroundColor="White" StrokeThickness="0">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Tytul}" 
+                                       FontSize="18" 
+                                       TextColor="#34495E"/>
 
-                            <Label Text="Dostępna w bibliotece" 
-                                   FontSize="12"/>
+                                <Label Text="Dostępna w bibliotece" 
+                                       FontSize="12" 
+                                       TextColor="#95A5A6"/>
 
-                            <Label Text="{Binding Tag}" 
-                                   FontSize="12"/>
-                        </VerticalStackLayout>
-                    </Grid>
+                                <Label Text="{Binding Tag}" 
+                                       TextColor="Black" 
+                                       FontSize="12"
+                                       FlowDirection="RightToLeft"
+                                       VerticalOptions="Center"
+                                       Grid.Column="1"/>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
