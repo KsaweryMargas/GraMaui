@@ -1,24 +1,17 @@
-﻿namespace GraMaui
+﻿using System.Net.Http.Json;
+
+namespace GraMaui
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        HttpClient klient = new HttpClient
+        {
+            BaseAddress = new Uri("http://localhost:5092")
+        };
 
         public MainPage()
         {
             InitializeComponent();
-        }
-
-        private void OnCounterClicked(object? sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
         }
     }
 }
