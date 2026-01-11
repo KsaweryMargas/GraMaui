@@ -1,1 +1,3 @@
-# GraMaui
+- Aplikacja Mobilna (MAUI):
+---
+   - Pomysł: GraMaui.
